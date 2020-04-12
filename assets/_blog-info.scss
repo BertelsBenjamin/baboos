@@ -1,0 +1,20 @@
+@import 'variables';
+
+// BLOG INFO
+#blog-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: blog-info;
+    height: 20vh;
+    padding: 5vh 10vw;
+    background-image: url('/assets/img/blog-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .6);
+    text-align: center;
+    color: $white;
+}

@@ -1,0 +1,35 @@
+@import 'variables';
+
+// ONS RESTAURANT
+#ons-restaurant {
+    display: grid;
+    grid-area: ons-restaurant;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        'ons-restaurant-img ons-restaurant-description';
+    grid-column-gap: 5vw;
+    padding: 10vh 10vh;
+    color: $mine-shaft;
+
+    #ons-restaurant-img {
+        background-image: url('/assets/img/about.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        grid-area: 'ons-restaurant-img';
+        min-height: 30vh;
+    }
+
+    #ons-restaurant-description {
+        grid-area: 'ons-restaurant-description';
+        color: $boulder;
+
+        .section-title {
+            color: $black;
+        }
+
+        hr {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,161 @@
+/* IMPORTS */
+@import "variables";
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script:700|Raleway&display=swap");
+@import "header";
+@import "ons-restaurant";
+@import "menu-info";
+@import "menu-main";
+@import "blog-info";
+@import "blog-main";
+@import "reservatie-info";
+@import "reservatie-main";
+@import "contact";
+@import "footer";
+
+// HTML
+html {
+    overflow-x: hidden;
+}
+
+// BODY
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "ons-restaurant"
+        "menu-info"
+        "menu-main"
+        "blog-info"
+        "blog-main"
+        "reservatie-info"
+        "reservatie-main"
+        "contact"
+        "footer";
+    font: 18px $main-font, sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.4rem;
+    color: $white;
+    min-width: 100vw;
+
+    * {
+        //border: 1px solid greenyellow;
+    }
+
+    header,
+    footer,
+    .section {
+        min-height: 10vh;
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .button {
+        background-color: $brick-red;
+        border-radius: 5px;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+        font-weight: 400;
+
+        &:hover {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: darken($brick-red, 2%);
+        }
+
+        &:active {
+            box-shadow: inset 1px 1px 1px 1px rgba(136, 10, 10, 0.5);
+            color: darken($white, 8%);
+        }
+    }
+
+    .fas,
+    .fab {
+        margin: auto 5px;
+    }
+
+    .logo {
+        text-align: center;
+        font-family: $logo-font;
+    }
+
+    hr {
+        background-color: $brick-red;
+        border: none;
+        width: 50px;
+        height: 2px;
+    }
+
+    .section-title {
+        font: 28px $main-font;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    #fixed-button-up {
+        position: fixed;
+        width: 50px;
+        height: 25px;
+        right: 0;
+        bottom: 10vh;
+        border-radius: 5px 0 0 5px;
+        text-align: center;
+    }
+
+    .socials {
+        position: fixed;
+        left: 0;
+        bottom: 40vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 60px;
+        height: 20vh;
+        background-color: $brick-red;
+        text-align: center;
+        border-radius: 0 5px 5px 0;
+        box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+
+        .fab {
+            color: $white;
+            margin: 0;
+        }
+    }
+}
+
+// Media Query Mixins
+@mixin mediaXl {
+    @media screen and (min-width: 1171px) and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mediaLg {
+    @media screen and (min-width: 769px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mediaSm {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@import 'mobile';

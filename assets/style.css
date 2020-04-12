@@ -1,0 +1,661 @@
+/* IMPORTS */
+/* VARIABLES */
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script:700|Raleway&display=swap");
+/* VARIABLES */
+@import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+#header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+      grid-template-areas: "logo-nav-wrapper" "call-to-action" ".";
+  height: 100vh;
+  background-image: url(/assets/img/header-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+
+#header .logo-nav-wrapper {
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo-nav-wrapper;
+      grid-template-areas: 'logo . . nav';
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#header .logo-nav-wrapper .logo-wrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo;
+  width: 100%;
+}
+
+#header .logo-nav-wrapper .logo-wrapper #p-logo-top-left {
+  font: 36px "Dancing Script", sans-serif;
+}
+
+#header .logo-nav-wrapper #nav-bar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: nav;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+#header .logo-nav-wrapper #nav-bar .nav-link {
+  padding: 0 1vw;
+}
+
+#header #call-to-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: call-to-action;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  text-align: center;
+}
+
+#header #call-to-action .main-logo {
+  font: 6rem "Dancing Script", sans-serif, sans-serif;
+}
+
+#header #call-to-action .sub-heading {
+  font: 24px "Raleway", sans-serif, sans-serif;
+}
+
+/* VARIABLES */
+#ons-restaurant {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: ons-restaurant;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'ons-restaurant-img ons-restaurant-description';
+  grid-column-gap: 5vw;
+  padding: 10vh 10vh;
+  color: #262626;
+}
+
+#ons-restaurant #ons-restaurant-img {
+  background-image: url("/assets/img/about.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-area: 'ons-restaurant-img';
+  min-height: 30vh;
+}
+
+#ons-restaurant #ons-restaurant-description {
+  grid-area: 'ons-restaurant-description';
+  color: #777777;
+}
+
+#ons-restaurant #ons-restaurant-description .section-title {
+  color: black;
+}
+
+#ons-restaurant #ons-restaurant-description hr {
+  display: inline-block;
+}
+
+/* VARIABLES */
+#menu-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: menu-info;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20vh;
+  padding: 5vh 10vw;
+  background-image: url("/assets/img/menu-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: white;
+}
+
+/* VARIABLES */
+#menu-main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: menu-main;
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2vw;
+  padding: 5vh 10vw;
+  color: #262626;
+}
+
+#menu-main .section-title {
+  text-align: center;
+}
+
+#menu-main .list-item-group {
+  margin-top: 2vh;
+}
+
+#menu-main .list-item-group .term {
+  font-weight: 600;
+  color: black;
+  border-bottom: 1px solid #dddddd;
+  padding: 5px;
+}
+
+#menu-main .list-item-group .term .price {
+  float: right;
+}
+
+#menu-main .list-item-group .desc {
+  color: #777777;
+  font-style: italic;
+}
+
+/* VARIABLES */
+#blog-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: blog-info;
+  height: 20vh;
+  padding: 5vh 10vw;
+  background-image: url("/assets/img/blog-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: white;
+}
+
+/* VARIABLES */
+#blog-main {
+  color: #777777;
+  padding: 10vh 10vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: blog-main;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 'article-1 article-2 article-3';
+  grid-gap: 2vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#blog-main .card {
+  width: 25vw;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1vh;
+}
+
+#blog-main .card .card-img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+#blog-main .card .figcaption,
+#blog-main .card .card-time {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#blog-main .card .card-title {
+  color: #de5f6a;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+#blog-main .card .card-desc {
+  color: #9d9d9d;
+  letter-spacing: 0;
+  line-height: 1.4rem;
+}
+
+#blog-main .card .button {
+  margin-top: 10px;
+  width: 120px;
+  height: 25px;
+}
+
+/* VARIABLES */
+#reservatie-info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  grid-area: reservatie-info;
+  height: 25vh;
+  background-color: #c72937;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+#reservatie-info h1 {
+  font-weight: 100;
+}
+
+#reservatie-info a {
+  font-weight: 900;
+  font-size: 36px;
+}
+
+/* VARIABLES */
+#reservatie-main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 8;
+  -ms-grid-column: 1;
+  grid-area: reservatie-main;
+  padding: 10vh 10vw;
+  color: #777777;
+}
+
+#reservatie-main input,
+#reservatie-main #form-found-us {
+  height: 30px;
+  width: auto;
+  font: 16px "Raleway", sans-serif;
+  color: #777777;
+  padding-left: 1vw;
+  margin: 1vh 0;
+}
+
+#reservatie-main .section-title {
+  color: black;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#reservatie-main .section-subtitle {
+  text-align: center;
+}
+
+#reservatie-main #reservatie-form {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "contact" "prefs" "allergies" "remarks";
+  margin-top: 5vh;
+}
+
+#reservatie-main #reservatie-form .question {
+  font-weight: 900;
+}
+
+#reservatie-main #reservatie-form .reservatie-contact {
+  padding: 2vh 2vw;
+  grid-area: "contact";
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  grid-gap: 2vw;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+#reservatie-main #reservatie-form .reservatie-prefs {
+  grid-area: "prefs";
+  padding: 2vh 2vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 2vw;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#reservatie-main #reservatie-form .reservatie-prefs .left-group,
+#reservatie-main #reservatie-form .reservatie-prefs .right-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#reservatie-main #reservatie-form .reservatie-prefs .left-group .form-group,
+#reservatie-main #reservatie-form .reservatie-prefs .right-group .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#reservatie-main #reservatie-form .reservatie-allergies {
+  grid-area: "allergies";
+  padding: 2vh 2vw;
+}
+
+#reservatie-main #reservatie-form .reservatie-allergies .form-group {
+  display: inline-block;
+  margin-left: 1vw;
+}
+
+#reservatie-main #reservatie-form .reservatie-allergies .form-group label {
+  padding-bottom: 5px;
+}
+
+#reservatie-main #reservatie-form .reservatie-remarks {
+  padding: 2vh 2vw;
+}
+
+#reservatie-main #reservatie-form .reservatie-remarks label,
+#reservatie-main #reservatie-form .reservatie-remarks textarea {
+  display: block;
+}
+
+#reservatie-main #reservatie-form .reservatie-remarks textarea {
+  margin-top: 2vh;
+  width: 100%;
+  height: 10vh;
+}
+
+#reservatie-main #reservatie-form #btn-reserveren {
+  margin: 2vh 2vw;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+/* VARIABLES */
+#contact {
+  background-color: black;
+  min-height: 40vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 9;
+  -ms-grid-column: 1;
+  grid-area: contact;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 'card-1 card-2 card-3';
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  align-content: center;
+}
+
+#contact .card {
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+#contact .card .card-title {
+  font-size: 18px;
+  color: #c72937;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 2vh;
+}
+
+#contact .card .logo-small {
+  font-size: 36px;
+  padding: 2.5vh 2vw;
+}
+
+#contact #card-1 {
+  grid-area: 'card-1';
+}
+
+#contact #card-2 {
+  grid-area: 'card-2';
+}
+
+#contact #card-3 {
+  grid-area: 'card-3';
+}
+
+/* VARIABLES */
+#footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 10;
+  -ms-grid-column: 1;
+  grid-area: footer;
+  background-color: #c72937;
+  color: white;
+  min-height: 8vh;
+  padding: 2vh 0;
+  text-align: center;
+}
+
+#footer i {
+  color: white;
+  margin: 0 2vw;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header" "ons-restaurant" "menu-info" "menu-main" "blog-info" "blog-main" "reservatie-info" "reservatie-main" "contact" "footer";
+  font: 18px "Raleway", sans-serif, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.4rem;
+  color: white;
+  min-width: 100vw;
+}
+
+body header,
+body footer,
+body .section {
+  min-height: 10vh;
+}
+
+body a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+body a:hover {
+  text-decoration: none;
+}
+
+body .button {
+  background-color: #c72937;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  -webkit-box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+body .button:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #bf2735;
+}
+
+body .button:active {
+  -webkit-box-shadow: inset 1px 1px 1px 1px rgba(136, 10, 10, 0.5);
+          box-shadow: inset 1px 1px 1px 1px rgba(136, 10, 10, 0.5);
+  color: #ebebeb;
+}
+
+body .fas,
+body .fab {
+  margin: auto 5px;
+}
+
+body .logo {
+  text-align: center;
+  font-family: "Dancing Script", sans-serif;
+}
+
+body hr {
+  background-color: #c72937;
+  border: none;
+  width: 50px;
+  height: 2px;
+}
+
+body .section-title {
+  font: 28px "Raleway", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+body #fixed-button-up {
+  position: fixed;
+  width: 50px;
+  height: 25px;
+  right: 0;
+  bottom: 10vh;
+  border-radius: 5px 0 0 5px;
+  text-align: center;
+}
+
+body .socials {
+  position: fixed;
+  left: 0;
+  bottom: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 60px;
+  height: 20vh;
+  background-color: #c72937;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  -webkit-box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+body .socials .fab {
+  color: white;
+  margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+  body header,
+  body .section {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    width: auto;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */

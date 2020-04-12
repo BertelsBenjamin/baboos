@@ -1,0 +1,17 @@
+@import 'variables';
+
+// FOOTER
+#footer {
+    display: grid;
+    grid-area: footer;
+    background-color: $brick-red;
+    color: $white;
+    min-height: 8vh;
+    padding: 2vh 0;
+    text-align: center;
+
+    i {
+        color: $white;
+        margin: 0 2vw;
+    }
+}

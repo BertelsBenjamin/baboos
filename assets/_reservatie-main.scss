@@ -1,0 +1,116 @@
+@import "variables";
+@import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+// RESERVATIE MAIN
+
+#reservatie-main {
+    display: grid;
+    grid-area: reservatie-main;
+    padding: 10vh 10vw;
+    color: $boulder;
+
+    input,
+    #form-found-us {
+        height: 30px;
+        width: auto;
+        font: 16px $main-font;
+        color: $boulder;
+        padding-left: 1vw;
+        margin: 1vh 0;
+    }
+
+    .section-title {
+        color: $black;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
+    }
+
+    #reservatie-form {
+        display: grid;
+        grid-template-areas:
+            "contact"
+            "prefs"
+            "allergies"
+            "remarks";
+        margin-top: 5vh;
+
+        .question {
+            font-weight: 900;
+        }
+
+        .reservatie-contact {
+            padding: 2vh 2vw;
+            grid-area: "contact";
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-around;
+            align-content: center;
+            align-items: baseline;
+            grid-gap: 2vw;
+            height: min-content;
+        }
+
+        .reservatie-prefs {
+            grid-area: "prefs";
+            padding: 2vh 2vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2vw;
+            justify-content: space-around;
+            align-content: center;
+
+            .left-group,
+            .right-group {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+
+        .reservatie-allergies {
+            grid-area: "allergies";
+            padding: 2vh 2vw;
+
+            .form-group {
+                display: inline-block;
+                margin-left: 1vw;
+
+                label {
+                    padding-bottom: 5px;
+                }
+            }
+        }
+
+        .reservatie-remarks {
+            padding: 2vh 2vw;
+
+            label,
+            textarea {
+                display: block;
+            }
+
+            textarea {
+                margin-top: 2vh;
+                width: 100%;
+                height: 10vh;
+            }
+        }
+
+        #btn-reserveren {
+            margin: 2vh 2vw;
+            width: max-content;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+}

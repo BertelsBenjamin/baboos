@@ -1,0 +1,49 @@
+@import 'variables';
+
+// BLOG MAIN
+#blog-main {
+    color: $boulder;
+    padding: 10vh 10vw;
+    display: grid;
+    grid-area: blog-main;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'article-1 article-2 article-3';
+    grid-gap: 2vw;
+    justify-content: space-between;
+
+    .card {
+        width: 25vw;
+        display: grid;
+        grid-gap: 1vh;
+
+        .card-img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .figcaption,
+        .card-time {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .card-title {
+            color: lighten($brick-red, 15%);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            color: lighten($boulder, 15%);
+            letter-spacing: 0;
+            line-height: 1.4rem;
+        }
+
+        .button {
+            margin-top: 10px;
+            width: 120px;
+            height: 25px;
+        }
+    }
+}
