@@ -37,9 +37,9 @@ body {
     color: $white;
     min-width: 100vw;
 
-    * {
-        //border: 1px solid greenyellow;
-    }
+    /* * {
+        border: 1px solid greenyellow;
+    } */
 
     header,
     footer,
@@ -130,31 +130,6 @@ body {
             color: $white;
             margin: 0;
         }
-    }
-}
-
-// Media Query Mixins
-@mixin mediaXl {
-    @media screen and (min-width: 1171px) and (max-width: 500px) {
-        @content;
-    }
-}
-
-@mixin mediaLg {
-    @media screen and (min-width: 769px) and (max-width: 1170px) {
-        @content;
-    }
-}
-
-@mixin mediaMd {
-    @media screen and (max-width: 768px) {
-        @content;
-    }
-}
-
-@mixin mediaSm {
-    @media screen and (max-width: 500px) {
-        @content;
     }
 }
 

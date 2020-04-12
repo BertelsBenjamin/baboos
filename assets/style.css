@@ -1,8 +1,34 @@
 /* IMPORTS */
 /* VARIABLES */
 @import url("https://fonts.googleapis.com/css?family=Dancing+Script:700|Raleway&display=swap");
-/* VARIABLES */
 @import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #header {
   display: -ms-grid;
   display: grid;
@@ -11,6 +37,7 @@
   grid-area: header;
       grid-template-areas: "logo-nav-wrapper" "call-to-action" ".";
   height: 100vh;
+  width: 100vw;
   background-image: url(/assets/img/header-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -25,12 +52,7 @@
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: logo-nav-wrapper;
-      grid-template-areas: 'logo . . nav';
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+      grid-template-areas: 'logo . . menu-btn';
 }
 
 #header .logo-nav-wrapper .logo-wrapper {
@@ -41,29 +63,140 @@
 }
 
 #header .logo-nav-wrapper .logo-wrapper #p-logo-top-left {
-  font: 36px "Dancing Script", sans-serif;
+  font: 38px "Dancing Script", sans-serif;
 }
 
-#header .logo-nav-wrapper #nav-bar {
+#header .logo-nav-wrapper .menu-btn {
   -ms-grid-row: 1;
   -ms-grid-column: 4;
-  grid-area: nav;
+  grid-area: menu-btn;
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+}
+
+#header .logo-nav-wrapper .menu-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background-color: #c72937;
+}
+
+#header .logo-nav-wrapper .menu-btn.close {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#header .logo-nav-wrapper .menu-btn.close .btn-line:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
+          transform: rotate(45deg) translate(5px, 5px);
+}
+
+#header .logo-nav-wrapper .menu-btn.close .btn-line:nth-child(2) {
+  opacity: 0;
+}
+
+#header .logo-nav-wrapper .menu-btn.close .btn-line:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(7px, -6px);
+          transform: rotate(-45deg) translate(7px, -6px);
+}
+
+#header .logo-nav-wrapper .menu {
+  position: fixed;
+  top: 0;
   width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+}
+
+#header .logo-nav-wrapper .menu.show {
+  visibility: visible;
+}
+
+#header .logo-nav-wrapper .menu-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  float: left;
+  width: 40%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #bfbfbf;
+  list-style: none;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
-#header .logo-nav-wrapper #nav-bar .nav-link {
-  padding: 0 1vw;
+#header .logo-nav-wrapper .menu-nav.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+#header .logo-nav-wrapper .menu .nav-item {
+  -webkit-transform: translate3d(600px, 0, 0);
+          transform: translate3d(600px, 0, 0);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+#header .logo-nav-wrapper .menu .nav-item.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+#header .logo-nav-wrapper .menu .nav-item.current > a {
+  color: #c72937;
+}
+
+#header .logo-nav-wrapper .menu .nav-link {
+  display: inline-block;
+  position: relative;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  font-weight: 300;
+  color: #000;
+  text-decoration: none;
+}
+
+#header .logo-nav-wrapper .menu .nav-link:hover {
+  color: #c72937;
+}
+
+#header .logo-nav-wrapper .nav-item:nth-child(1) {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+#header .logo-nav-wrapper .nav-item:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+#header .logo-nav-wrapper .nav-item:nth-child(3) {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+#header .logo-nav-wrapper .nav-item:nth-child(4) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
 }
 
 #header #call-to-action {
@@ -96,6 +229,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #ons-restaurant {
   display: -ms-grid;
   display: grid;
@@ -132,6 +274,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #menu-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,6 +314,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #menu-main {
   display: -ms-grid;
   display: grid;
@@ -200,6 +360,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #blog-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,6 +400,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #blog-main {
   color: #777777;
   padding: 10vh 10vw;
@@ -285,6 +463,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #reservatie-info {
   display: -ms-grid;
   display: grid;
@@ -314,6 +501,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #reservatie-main {
   display: -ms-grid;
   display: grid;
@@ -462,6 +658,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #contact {
   background-color: black;
   min-height: 40vh;
@@ -512,6 +717,15 @@
 }
 
 /* VARIABLES */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #footer {
   display: -ms-grid;
   display: grid;
@@ -543,6 +757,9 @@ body {
   line-height: 1.4rem;
   color: white;
   min-width: 100vw;
+  /* * {
+        border: 1px solid greenyellow;
+    } */
 }
 
 body header,
@@ -648,14 +865,11 @@ body .socials .fab {
 }
 
 @media screen and (max-width: 500px) {
-  body header,
-  body .section {
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
-    width: auto;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+  body #header,
+  body .section,
+  body #footer {
+    height: 100vh;
+    width: 100vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

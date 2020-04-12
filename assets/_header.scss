@@ -7,6 +7,7 @@
     grid-template-areas:
         'logo-nav-wrapper''call-to-action''.';
     height: 100vh;
+    width: 100vw;
     background-image: url(/assets/img/header-bg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -16,29 +17,125 @@
         width: 100vw;
         display: grid;
         grid-area: logo-nav-wrapper;
-        grid-template-areas: 'logo . . nav';
-        justify-content: space-around;
-        align-items: baseline;
+        grid-template-areas: 'logo . . menu-btn';
 
         .logo-wrapper {
             grid-area: logo;
             width: 100%;
 
             #p-logo-top-left {
-                font: 36px $logo-font;
+                font: 38px $logo-font;
             }
         }
 
-        #nav-bar {
-            grid-area: nav;
+        // Menu button
+        .menu-btn {
+            grid-area: menu-btn;
+            position: absolute;
+            z-index: 3;
+            right: 35px;
+            top: 35px;
+            cursor: pointer;
+
+            .btn-line {
+                width: 28px;
+                height: 3px;
+                margin: 0 0 5px 0;
+                background-color: $brick-red;
+            }
+
+            // Rotate Into X With Menu Lines
+            &.close {
+                transform: rotate(180deg);
+
+                .btn-line {
+
+                    // Line 1 - Rotate
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, 5px);
+                    }
+
+                    // Line 2 - Hide
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    // Line 3 - Rotate
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translate(7px, -6px);
+                    }
+                }
+            }
+        }
+
+        // Menu Overlay
+        .menu {
+            position: fixed;
+            top: 0;
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-content: space-between;
+            opacity: 0.9;
+            visibility: hidden;
+
+            &.show {
+                visibility: visible;
+            }
+
+            &-nav {
+                display: flex;
+                flex-flow: column wrap;
+                align-items: center;
+                justify-content: center;
+                float: left;
+                width: 40%;
+                height: 100vh;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background: darken($white, 25);
+                list-style: none;
+                transform: translate3d(0, -100%, 0);
+                @include easeOut;
+
+                &.show {
+                    // Slide in from top
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            .nav-item {
+                transform: translate3d(600px, 0, 0);
+                @include easeOut;
+
+                &.show {
+                    // Slide in from right
+                    transform: translate3d(0, 0, 0);
+                }
+
+                &.current>a {
+                    color: $brick-red;
+                }
+            }
 
             .nav-link {
-                padding: 0 1vw;
+                display: inline-block;
+                position: relative;
+                font-size: 30px;
+                text-transform: uppercase;
+                padding: 1rem 0;
+                font-weight: 300;
+                color: set-text-color($white);
+                text-decoration: none;
+
+                &:hover {
+                    color: $brick-red;
+                }
+            }
+        }
+
+        // Delay each nav item slide by 0.1s
+        @for $x from 1 through 4 {
+            .nav-item:nth-child(#{$x}) {
+                transition-delay: $x * 0.1s;
             }
         }
     }
