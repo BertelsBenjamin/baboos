@@ -14,7 +14,17 @@
 
 // HTML
 html {
+    overflow: scroll;
     overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $brick-red;
 }
 
 // BODY
@@ -35,7 +45,10 @@ body {
     letter-spacing: 0.5px;
     line-height: 1.4rem;
     color: $white;
-    min-width: 100vw;
+
+    main {
+        width: 100vw;
+    }
 
     /* * {
         border: 1px solid greenyellow;

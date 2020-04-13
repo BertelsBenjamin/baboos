@@ -11,6 +11,18 @@
     grid-gap: 2vw;
     justify-content: space-between;
 
+    #article-1 {
+        grid-area: article-1;
+    }
+
+    #article-2 {
+        grid-area: article-2;
+    }
+
+    #article-3 {
+        grid-area: article-3;
+    }
+
     .card {
         width: 25vw;
         display: grid;

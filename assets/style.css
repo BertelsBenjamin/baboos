@@ -75,6 +75,8 @@
   right: 35px;
   top: 35px;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 #header .logo-nav-wrapper .menu-btn .btn-line {
@@ -82,6 +84,8 @@
   height: 3px;
   margin: 0 0 5px 0;
   background-color: #c72937;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 #header .logo-nav-wrapper .menu-btn.close {
@@ -135,7 +139,7 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background: #bfbfbf;
+  background: white;
   list-style: none;
   -webkit-transform: translate3d(0, -100%, 0);
           transform: translate3d(0, -100%, 0);
@@ -167,10 +171,10 @@
 #header .logo-nav-wrapper .menu .nav-link {
   display: inline-block;
   position: relative;
-  font-size: 30px;
+  font-size: 1.5ch;
   text-transform: uppercase;
   padding: 1rem 0;
-  font-weight: 300;
+  font-weight: 900;
   color: #000;
   text-decoration: none;
 }
@@ -247,7 +251,7 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas: 'ons-restaurant-img ons-restaurant-description';
   grid-column-gap: 5vw;
-  padding: 10vh 10vh;
+  padding: 10vh 10vw;
   color: #262626;
 }
 
@@ -256,12 +260,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  grid-area: 'ons-restaurant-img';
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: ons-restaurant-img;
   min-height: 30vh;
 }
 
 #ons-restaurant #ons-restaurant-description {
-  grid-area: 'ons-restaurant-description';
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: ons-restaurant-description;
   color: #777777;
 }
 
@@ -423,6 +431,24 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#blog-main #article-1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: article-1;
+}
+
+#blog-main #article-2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: article-2;
+}
+
+#blog-main #article-3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: article-3;
 }
 
 #blog-main .card {
@@ -745,7 +771,17 @@
 }
 
 html {
+  overflow: scroll;
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c72937;
 }
 
 body {
@@ -756,10 +792,13 @@ body {
   letter-spacing: 0.5px;
   line-height: 1.4rem;
   color: white;
-  min-width: 100vw;
   /* * {
         border: 1px solid greenyellow;
     } */
+}
+
+body main {
+  width: 100vw;
 }
 
 body header,
@@ -865,11 +904,131 @@ body .socials .fab {
 }
 
 @media screen and (max-width: 500px) {
-  body #header,
-  body .section,
-  body #footer {
+  body header,
+  body footer,
+  body .section {
+    min-height: 50vh;
+  }
+  body #fixed-button-up {
+    width: 5vw;
+    border-radius: 100%;
+    bottom: 6vh;
+    right: 0.5vh;
+    z-index: 3;
+    opacity: 0.7;
+  }
+  body > .socials {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    height: 50px;
+    border-radius: 0;
+    z-index: 2;
+  }
+  body #header {
     height: 100vh;
+  }
+  body #header .menu-nav.show {
     width: 100vw;
+    height: 30vh;
+  }
+  body #header #btn-ons-verhaal {
+    width: 25vw;
+  }
+  body #header #btn-ons-verhaal i {
+    display: none;
+  }
+  body #ons-restaurant {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    text-align: center;
+  }
+  body #menu-info {
+    text-align: center;
+    min-height: unset;
+    height: 30vh;
+  }
+  body #menu-main {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "menu-burgers" "menu-salads";
+    word-wrap: break-word;
+  }
+  body #menu-main #menu-burgers {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: menu-burgers;
+  }
+  body #menu-main #menu-salads {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: menu-salads;
+    margin-top: 5vh;
+  }
+  body #blog-info {
+    min-height: unset;
+    height: 20vh;
+  }
+  body #blog-main {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "article-1" "article-2" "article-3";
+  }
+  body #blog-main .card {
+    width: 100%;
+    margin: 2vh 0;
+  }
+  body #reservatie-info {
+    min-height: unset;
+    height: 30vh;
+  }
+  body #reservatie-main #reservatie-form .reservatie-contact {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+  }
+  body #reservatie-main #reservatie-form .reservatie-prefs {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+  }
+  body #reservatie-main #reservatie-form .reservatie-prefs * {
+    width: 100%;
+  }
+  body #reservatie-main #reservatie-form .reservatie-allergies {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+  }
+  body #reservatie-main #reservatie-form .reservatie-allergies .form-group {
+    display: block;
+  }
+  body #reservatie-main #reservatie-form .reservatie-contact {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+  }
+  body #contact {
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: unset;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body #contact .card {
+    margin: 2vh 0;
+  }
+  body #footer .footer-socials {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

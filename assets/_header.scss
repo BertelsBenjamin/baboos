@@ -36,12 +36,14 @@
             right: 35px;
             top: 35px;
             cursor: pointer;
+            @include easeOut;
 
             .btn-line {
                 width: 28px;
                 height: 3px;
                 margin: 0 0 5px 0;
                 background-color: $brick-red;
+                @include easeOut;
             }
 
             // Rotate Into X With Menu Lines
@@ -52,7 +54,7 @@
 
                     // Line 1 - Rotate
                     &:nth-child(1) {
-                        transform: rotate(45deg) translate(5px, 5px);
+                        transform: rotate(45deg) translate(5px, 5px)
                     }
 
                     // Line 2 - Hide
@@ -91,7 +93,7 @@
                 overflow: hidden;
                 margin: 0;
                 padding: 0;
-                background: darken($white, 25);
+                background: $white;
                 list-style: none;
                 transform: translate3d(0, -100%, 0);
                 @include easeOut;
@@ -119,10 +121,10 @@
             .nav-link {
                 display: inline-block;
                 position: relative;
-                font-size: 30px;
+                font-size: 1.5ch;
                 text-transform: uppercase;
                 padding: 1rem 0;
-                font-weight: 300;
+                font-weight: 900;
                 color: set-text-color($white);
                 text-decoration: none;
 

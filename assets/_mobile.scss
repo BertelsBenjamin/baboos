@@ -11,11 +11,146 @@
 @include mediaSm {
     body {
 
-        #header,
-        .section,
-        #footer {
-            height: 100vh;
-            width: 100vw;
+        header,
+        footer,
+        .section {
+            min-height: 50vh;
         }
+
+        #fixed-button-up {
+            width: 5vw;
+            border-radius: 100%;
+            bottom: 6vh;
+            right: 0.5vh;
+            z-index: 3;
+            opacity: 0.7;
+        }
+
+        >.socials {
+            flex-direction: row;
+            bottom: 0;
+            width: 100%;
+            align-content: center;
+            height: 50px;
+            border-radius: 0;
+            z-index: 2;
+        }
+
+        // HEADER
+
+        #header {
+            height: 100vh;
+
+            .menu-nav {
+                &.show {
+                    width: 100vw;
+                    height: 30vh;
+                }
+            }
+
+            #btn-ons-verhaal {
+                width: 25vw;
+
+                i {
+                    display: none;
+                }
+            }
+        }
+
+        #ons-restaurant {
+            grid-template-columns: 1fr;
+            grid-column-gap: 0;
+            text-align: center;
+
+        }
+
+        #menu-info {
+            text-align: center;
+            min-height: unset;
+            height: 30vh;
+        }
+
+        #menu-main {
+            grid-template-columns: unset;
+            grid-template-rows: 1fr;
+            grid-template-areas: 'menu-burgers''menu-salads';
+            word-wrap: break-word;
+
+            #menu-burgers {
+                grid-area: menu-burgers;
+            }
+
+            #menu-salads {
+                grid-area: menu-salads;
+                margin-top: 5vh;
+            }
+        }
+
+        #blog-info {
+            min-height: unset;
+            height: 20vh;
+        }
+
+        #blog-main {
+            grid-template-columns: unset;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: 'article-1''article-2''article-3';
+
+            .card {
+                width: 100%;
+                margin: 2vh 0;
+            }
+        }
+
+        #reservatie-info {
+            min-height: unset;
+            height: 30vh;
+        }
+
+        #reservatie-main {
+            #reservatie-form {
+                .reservatie-contact {
+                    grid-template-columns: unset;
+                }
+
+                .reservatie-prefs {
+                    grid-template-columns: unset;
+
+                    * {
+                        width: 100%;
+                    }
+                }
+
+                .reservatie-allergies {
+                    grid-template-columns: unset;
+
+                    .form-group {
+                        display: block;
+                    }
+                }
+
+                .reservatie-contact {
+                    grid-template-columns: unset;
+                }
+            }
+        }
+
+        #contact {
+            grid-template-columns: unset;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: unset;
+            justify-content: center;
+
+            .card {
+                margin: 2vh 0;
+            }
+        }
+
+        #footer {
+            .footer-socials {
+                display: none;
+            }
+        }
+
     }
 }

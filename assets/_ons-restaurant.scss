@@ -8,7 +8,7 @@
     grid-template-areas:
         'ons-restaurant-img ons-restaurant-description';
     grid-column-gap: 5vw;
-    padding: 10vh 10vh;
+    padding: 10vh 10vw;
     color: $mine-shaft;
 
     #ons-restaurant-img {
@@ -16,12 +16,12 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        grid-area: 'ons-restaurant-img';
+        grid-area: ons-restaurant-img;
         min-height: 30vh;
     }
 
     #ons-restaurant-description {
-        grid-area: 'ons-restaurant-description';
+        grid-area: ons-restaurant-description;
         color: $boulder;
 
         .section-title {
